@@ -1,0 +1,5120 @@
+==============================================
+             MACHINE STATE 0
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(6) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(1000) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 1
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(6) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(0) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 2
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(6) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(0) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 3
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(6) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(0) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 4
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(6) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(7) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 5
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(5) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(7) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 6
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(5) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(7) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 7
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(5) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(7) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 8
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(5) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(14) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 9
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(4) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(14) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 10
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(4) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(14) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 11
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(4) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(14) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 12
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(4) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(21) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 13
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(3) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(21) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 14
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(3) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(21) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 15
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(3) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(21) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 16
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(3) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(28) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 17
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(2) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(28) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 18
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(2) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(28) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 19
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(2) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(28) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 20
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(2) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(35) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 21
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(1) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(35) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 22
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(1) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(35) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 23
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(1) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(35) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 24
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(1) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(42) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 25
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(0) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(42) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 26
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(0) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(42) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 27
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(0) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(42) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JUMP  OpReg( Reg4 ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 28
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(0) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(42) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JUMP  OpReg( Reg4 ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
+==============================================
+             MACHINE STATE 29
+----------------------------------------------
+Register File State:
+----------------------------------------------
+        Reg1 : OpInt(0) 
+        Reg2 : OpInt(7) 
+        Reg3 : OpInt(42) 
+        Reg4 : OpLab( done ) 
+
+----------------------------------------------
+Heap State:
+----------------------------------------------
+ OpLab( prod ) :
+        MOV   Reg3  OpInt(0) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( loop ) :
+        JEZ   Reg1  OpLab( done ) ;
+        ADD   Reg3  Reg2  OpReg( Reg3 ) ;
+        ADD   Reg1  Reg1  OpInt(-1) ;
+        JUMP  OpLab( loop ) ;
+
+ OpLab( done ) :
+        JUMP  OpReg( Reg4 ) ;
+
+----------------------------------------------
+Current Instruction Sequence:
+----------------------------------------------
+        JUMP  OpReg( Reg4 ) ;
+
+______________________________________________
+
+                  TYPING
+______________________________________________
+
+1.1 Inferred Gamma:
+----------------------------------------------
+ Reg1 : TyInt 
+ Reg2 : TyInt 
+ Reg3 : TyInt 
+ Reg4 : TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+1.2 Inferred type of current ISeq:
+----------------------------------------------
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Instruction Sequence type OK! :)
+______________________________________________
+
+2.1 Psi in Context:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+2.2 Psi Inferred:
+----------------------------------------------
+ OpLab( prod ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( loop ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyCode {
+             Reg1 : TyInt 
+             Reg2 : TyInt 
+             Reg3 : TyInt 
+             Reg4 : TyAll(Alpha) 
+         } 
+     } 
+ } 
+ OpLab( done ) :
+ TyCode {
+     Reg1 : TyInt 
+     Reg2 : TyInt 
+     Reg3 : TyInt 
+     Reg4 : TyCode {
+         Reg1 : TyInt 
+         Reg2 : TyInt 
+         Reg3 : TyInt 
+         Reg4 : TyAll(Alpha) 
+     } 
+ } 
+----------------------------------------------
+Heaps type OK! :)
+______________________________________________
+
+Current Machine State is WELL-TYPED! :)
+==============================================
+                     ||
+                     ||
+                     \/
